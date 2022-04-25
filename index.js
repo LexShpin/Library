@@ -10,6 +10,16 @@ function Book(title, author, pages, isRead) {
     }
 }
 
-function addBookToLibrary() {
-    
+function addBookToLibrary(title, author, pages, isRead) {
+    let newBook = new Book(title, author, pages, isRead)
+
+    myLibrary.push(newBook)
+}
+
+function displayAllBooks(books) {
+
+    for (let i = 0; i < books.length; i++) {
+        
+    }
+
 }
