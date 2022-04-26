@@ -12,7 +12,18 @@
     <div class="header__title">Library</div>
 </header>
 
-<button class="add-book">Add a book</button>
+<button class="add-book-btn">Add a book</button>
+
+<form class="add-book-form">
+    <input type="text" id="author" placeholder="author">
+    <input type="text" id="title" placeholder="title">
+    <input type="text" id="pages" placeholder="pages">
+    <div class="isRead-container">
+        <input type="checkbox" name="isRead" id="isRead">
+        <label for="isRead">Have you read it?</label> 
+    </div>
+    <button class="submit">Submit</button>
+</form>
 
 <div class="book-cards">
     <div class="card"></div>

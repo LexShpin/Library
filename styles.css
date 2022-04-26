@@ -1,0 +1,19 @@
+* {
+    box-sizing: border-box;
+}
+
+.add-book-form {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    padding: 15px;
+    height: 300px;
+    gap: 15px;
+}
+
+input {
+    padding: 15px;
+}

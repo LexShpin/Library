@@ -1,3 +1,5 @@
+const addBookForm = document.querySelector('.add-book-form')
+
 let myLibrary = []
 
 function Book(title, author, pages, isRead) {
@@ -18,8 +20,16 @@ function addBookToLibrary(title, author, pages, isRead) {
 
 function displayAllBooks(books) {
 
-    for (let i = 0; i < books.length; i++) {
-        
-    }
+    books.forEach(book => {
+        // displaying all the cards with books
+        console.log(book)
+    });
 
 }
+
+addBookForm.addEventListener('submit', (e) => {
+    // return the data from the submitted form, pass it into the addBookToLibrary function
+    // generate a book and push it to the myLibrary array
+    e.preventDefault()
+    console.log('form submitted')
+})
