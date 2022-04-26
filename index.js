@@ -1,5 +1,7 @@
 const addBookForm = document.querySelector('.add-book-form')
 const addBookBtn = document.querySelector('.add-book-btn')
+const bookCards = document.querySelector('.book-cards')
+const removeBtns = document.querySelectorAll('.remove')
 
 let myLibrary = []
 
@@ -25,16 +27,44 @@ function displayAllBooks(books) {
         // displaying all the cards with books
 
         // Creating all the elements for the card
-        let bookCard = document.createElement('div')
-        let cardTitle = document.createElement('p')
-        let cardAuthor = document.createElement('p')
-        let cardPages = document.createElement('p')
-        let isReadToggle = document.createElement('button')
+        let card = document.createElement('div')
+        let cardTitle = document.createElement('div')
+        let cardAuthor = document.createElement('div')
+        let cardPages = document.createElement('div')
+        let isRead = document.createElement('button')
         let removeBtn = document.createElement('button')
 
         // Adding classes for each element
-        bookCard.classList.add('card')
-        cardTitle.classList.add('card-title')
+        card.classList.add('card')
+        cardTitle.classList.add('title')
+        cardAuthor.classList.add('author')
+        cardPages.classList.add('pages')
+        
+        isRead.classList.add('card-btn')
+        if (book.isRead) {
+            isRead.classList.add('read')
+        } else {
+            isRead.classList.add('not-read')
+        }
+
+        removeBtn.classList.add('card-btn')
+        removeBtn.classList.add('remove')
+
+        // Filling in the content of the elements
+        cardTitle.textContent = book.title
+        cardAuthor.textContent = book.author
+        cardPages.textContent = book.pages
+        isRead.textContent = book.isRead == true ? 'Read' : 'Not read'
+        removeBtn.textContent = 'Remove'
+
+        // Appending the elements to the DOM
+        card.appendChild(cardTitle)
+        card.appendChild(cardAuthor)
+        card.appendChild(cardPages)
+        card.appendChild(isRead)
+        card.appendChild(removeBtn)
+
+        bookCards.appendChild(card)
     });
 
 }
@@ -56,4 +86,8 @@ addBookForm.addEventListener('submit', (e) => {
 
     addBookToLibrary(title, author, pages, isRead)
     console.log(myLibrary)
+    displayAllBooks(myLibrary)
 })
+
+// Removing the card
+// removeBtns.forEach(button => button.addEventListener('click', () => ))

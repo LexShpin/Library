@@ -25,3 +25,37 @@ input {
 .submit {
     cursor: pointer;
 }
+
+.card {
+    border: 1px solid black;
+    width: 350px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 24px;
+}
+
+.card-btn {
+    width: 300px;
+    padding: 15px;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.card-btn:hover {
+    filter: brightness(90%);
+}
+
+.read {
+    background-color: green;
+}
+
+.not-read {
+    background-color: red;
+}
