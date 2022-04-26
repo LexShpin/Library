@@ -23,7 +23,18 @@ function displayAllBooks(books) {
 
     books.forEach(book => {
         // displaying all the cards with books
-        console.log(book)
+
+        // Creating all the elements for the card
+        let bookCard = document.createElement('div')
+        let cardTitle = document.createElement('p')
+        let cardAuthor = document.createElement('p')
+        let cardPages = document.createElement('p')
+        let isReadToggle = document.createElement('button')
+        let removeBtn = document.createElement('button')
+
+        // Adding classes for each element
+        bookCard.classList.add('card')
+        cardTitle.classList.add('card-title')
     });
 
 }
@@ -34,7 +45,7 @@ addBookBtn.addEventListener('click', () => {
 
 addBookForm.addEventListener('submit', (e) => {
     const formData = new FormData(e.target)
-    
+
     e.preventDefault()
     addBookForm.style.display = 'none'
 
