@@ -1,4 +1,5 @@
 const addBookForm = document.querySelector('.add-book-form')
+const addBookBtn = document.querySelector('.add-book-btn')
 
 let myLibrary = []
 
@@ -27,9 +28,21 @@ function displayAllBooks(books) {
 
 }
 
+addBookBtn.addEventListener('click', () => {
+    addBookForm.style.display = 'flex'
+})
+
 addBookForm.addEventListener('submit', (e) => {
-    // return the data from the submitted form, pass it into the addBookToLibrary function
-    // generate a book and push it to the myLibrary array
+    const formData = new FormData(e.target)
+    
     e.preventDefault()
-    console.log('form submitted')
+    addBookForm.style.display = 'none'
+
+    let title = formData.get('title')
+    let author = formData.get('author')
+    let pages = formData.get('pages')
+    let isRead = formData.get('isRead')
+
+    addBookToLibrary(title, author, pages, isRead)
+    console.log(myLibrary)
 })
