@@ -8,8 +8,6 @@ const titleInput = document.querySelector('#title')
 const pagesInput = document.querySelector('#pages')
 const isReadInput = document.querySelector('#isRead')
 
-console.log(removeBtns)
-
 let myLibrary = []
 
 function Book(title, author, pages, isRead) {
@@ -54,7 +52,10 @@ function addBookToLibrary(title, author, pages, isRead) {
         cardTitle.textContent = newBook.title
         cardAuthor.textContent = newBook.author
         cardPages.textContent = newBook.pages
+
         isReadToggle.textContent = newBook.isRead ? 'Read' : 'Not read'
+        
+
         removeBtn.textContent = 'Remove'
         removeBtn.onclick = removeBook
 
