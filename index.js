@@ -26,60 +26,60 @@ function addBookToLibrary(title, author, pages, isRead) {
     myLibrary.push(newBook)
 
     let card = document.createElement('div')
-        let cardTitle = document.createElement('div')
-        let cardAuthor = document.createElement('div')
-        let cardPages = document.createElement('div')
-        let isReadToggle = document.createElement('button')
-        let removeBtn = document.createElement('button')
+    let cardTitle = document.createElement('div')
+    let cardAuthor = document.createElement('div')
+    let cardPages = document.createElement('div')
+    let isReadToggle = document.createElement('button')
+    let removeBtn = document.createElement('button')
 
-        // Adding classes for each element
-        card.classList.add('card')
-        cardTitle.classList.add('title')
-        cardAuthor.classList.add('author')
-        cardPages.classList.add('pages')
-        
-        isReadToggle.classList.add('card-btn')
+    // Adding classes for each element
+    card.classList.add('card')
+    cardTitle.classList.add('title')
+    cardAuthor.classList.add('author')
+    cardPages.classList.add('pages')
+    
+    isReadToggle.classList.add('card-btn')
+    if (newBook.isRead) {
+        isReadToggle.classList.add('read')
+    } else {
+        isReadToggle.classList.add('not-read')
+    }
+
+    removeBtn.classList.add('card-btn')
+    removeBtn.classList.add('remove')
+
+    // Filling in the content of the elements
+    cardTitle.textContent = newBook.title
+    cardAuthor.textContent = newBook.author
+    cardPages.textContent = newBook.pages
+
+    isReadToggle.textContent = newBook.isRead ? 'Read' : 'Not read'
+    isReadToggle.addEventListener('click', () => {
         if (newBook.isRead) {
-            isReadToggle.classList.add('read')
-        } else {
+            isReadToggle.classList.remove('read')
             isReadToggle.classList.add('not-read')
+            isReadToggle.textContent = 'Not read'
+            newBook.isRead = false
+        } else {
+            isReadToggle.classList.remove('not-read')
+            isReadToggle.classList.add('read')
+            isReadToggle.textContent = 'Read'
+            newBook.isRead = true
         }
+    })
+    
 
-        removeBtn.classList.add('card-btn')
-        removeBtn.classList.add('remove')
+    removeBtn.textContent = 'Remove'
+    removeBtn.onclick = removeBook
 
-        // Filling in the content of the elements
-        cardTitle.textContent = newBook.title
-        cardAuthor.textContent = newBook.author
-        cardPages.textContent = newBook.pages
+    // Appending the elements to the DOM
+    card.appendChild(cardTitle)
+    card.appendChild(cardAuthor)
+    card.appendChild(cardPages)
+    card.appendChild(isReadToggle)
+    card.appendChild(removeBtn)
 
-        isReadToggle.textContent = newBook.isRead ? 'Read' : 'Not read'
-        isReadToggle.addEventListener('click', () => {
-            if (newBook.isRead) {
-                isReadToggle.classList.remove('read')
-                isReadToggle.classList.add('not-read')
-                isReadToggle.textContent = 'Not read'
-                newBook.isRead = false
-            } else {
-                isReadToggle.classList.remove('not-read')
-                isReadToggle.classList.add('read')
-                isReadToggle.textContent = 'Read'
-                newBook.isRead = true
-            }
-        })
-        
-
-        removeBtn.textContent = 'Remove'
-        removeBtn.onclick = removeBook
-
-        // Appending the elements to the DOM
-        card.appendChild(cardTitle)
-        card.appendChild(cardAuthor)
-        card.appendChild(cardPages)
-        card.appendChild(isReadToggle)
-        card.appendChild(removeBtn)
-
-        bookCards.appendChild(card)
+    bookCards.appendChild(card)
 }
 
 addBookBtn.addEventListener('click', () => {
