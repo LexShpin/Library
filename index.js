@@ -54,6 +54,19 @@ function addBookToLibrary(title, author, pages, isRead) {
         cardPages.textContent = newBook.pages
 
         isReadToggle.textContent = newBook.isRead ? 'Read' : 'Not read'
+        isReadToggle.addEventListener('click', () => {
+            if (newBook.isRead) {
+                isReadToggle.classList.remove('read')
+                isReadToggle.classList.add('not-read')
+                isReadToggle.textContent = 'Not read'
+                newBook.isRead = false
+            } else {
+                isReadToggle.classList.remove('not-read')
+                isReadToggle.classList.add('read')
+                isReadToggle.textContent = 'Read'
+                newBook.isRead = true
+            }
+        })
         
 
         removeBtn.textContent = 'Remove'
