@@ -23,9 +23,10 @@
     <input type="number" id="pages" name="pages" placeholder="pages" required>
     <div class="isRead-container">
         <input type="checkbox" name="isRead" id="isRead">
-        <label for="isRead">Have you read it?</label> 
+        <label for="isRead" id="isReadLabel">Have you read it?</label> 
     </div>
     <button class="submit">Submit</button>
+    <button class="close-form-btn">X</button>
 </form>
 
 <div class="book-cards">
@@ -47,7 +48,9 @@
         </button>
     </div>
 </div>
-    
+
+<div class="overlay"></div>
+
 <script src="./index.js"></script>
 </body>
 </html>

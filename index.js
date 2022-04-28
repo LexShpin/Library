@@ -8,6 +8,9 @@ const titleInput = document.querySelector('#title')
 const pagesInput = document.querySelector('#pages')
 const isReadInput = document.querySelector('#isRead')
 
+const overlay = document.querySelector('.overlay')
+const closeFormBtn = document.querySelector('.close-form-btn')
+
 let myLibrary = []
 
 function Book(title, author, pages, isRead) {
@@ -84,6 +87,7 @@ function addBookToLibrary(title, author, pages, isRead) {
 
 addBookBtn.addEventListener('click', () => {
     addBookForm.style.display = 'flex'
+    overlay.classList.add('overlay-active')
 })
 
 addBookForm.addEventListener('submit', (e) => {
@@ -100,9 +104,16 @@ addBookForm.addEventListener('submit', (e) => {
     addBookToLibrary(title, author, pages, isRead)
 
     addBookForm.reset()
+    overlay.classList.remove('overlay-active')
 })
 
 const removeBook = (e) => {
 
     e.target.parentNode.remove()
 }
+
+closeFormBtn.addEventListener('click', (e) => {
+    e.preventDefault()
+    addBookForm.style.display = 'none'
+    overlay.classList.remove('overlay-active')
+})
