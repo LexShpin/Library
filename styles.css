@@ -1,9 +1,39 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    height: 100px;
+    background-color: #37455b;
+    color: #ffff;
+    font-size: 30px;
+}
+
+.header__title {
+    margin-left: 15px;
+    position: absolute;
+    top: 50px;
+}
+
+.add-book-btn-wrapper {
+    display: flex;
+    justify-content: center;
 }
 
 .add-book-btn {
     cursor: pointer;
+    margin-top: 15px;
+    padding: 15px;
+    border: none;
+    font-weight: bold;
+    background-color: #fff;
+    font-size: 24px;
+}
+
+.add-book-btn:hover {
+    filter: brightness(90%);
 }
 
 .add-book-form {
