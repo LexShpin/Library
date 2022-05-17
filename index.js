@@ -13,13 +13,16 @@ const closeFormBtn = document.querySelector('.close-form-btn')
 
 let myLibrary = []
 
-function Book(title, author, pages, isRead) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.isRead = isRead
-    this.info = function() {
-        return `${title} by ${author}, ${pages} pages, ${isRead ? 'yes' : 'no'}`
+class Book {
+    constructor(title, author, pages, isRead) {
+        this.title = title
+        this.author = author
+        this.pages = pages
+        this.isRead = isRead
+    }
+
+    info() {
+        return `${this.title} by ${this.author}, ${this.pages} pages, ${this.isRead ? 'yes' : 'no'}`
     }
 }
 
